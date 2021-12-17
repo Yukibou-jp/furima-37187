@@ -6,62 +6,63 @@
 | nickname           | string | null: false |
 | email              | string | null: false |
 | encrypted_password | string | null: false |
-| full_name          | string | null: false |
-| full_name_kana     | string | null: false |
-| date of birth      | string | null: false |
+| last_name          | string | null: false |
+| first_name         | string | null: false |
+| last_name_kana     | string | null: false |
+| first_name_kana    | string | null: false |
+| date_of_birth      | date   | null: false |
 
 ### Association
 
 - has_many :items
-- has_many :purchase info 
+- has_many :purchase_records 
 
 
 # items テーブル
 
-| Column                     | Type   | Options     |
-| -------------------------- | ------ | ----------- |
-| item_image                 | string | null: false |
-| item_name                  | string | null: false |
-| item_explanation           | string | null: false |
-| category                   | string | null: false |
-| condition                  | string | null: false |
-| Burden of shipping charges | string | null: false |
-| Shipment source            | string | null: false |
-| Days to ship               | string | null: false |
-| price                      | string | null: false |
-| user_id                    | string | null: false |
+| Column                        | Type        | Options     |
+| ----------------------------- | ----------- | ----------- |
+| item_name                     | string      | null: false |
+| item_explanation              | text        | null: false |
+| category_id                   | integer     | null: false |
+| condition_id                  | integer     | null: false |
+| burden_of_shipping_charge_id  | integer     | null: false |
+| shipment source_id            | integer     | null: false |
+| days_to_ship_id               | integer     | null: false |
+| price                         | integer     | null: false |
+| user                          | references  | null: false,foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one    :purchase info
+- has_one    :purchase_record
 
-# purchase info テーブル
+# purchase_records テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| name               | string | null: false |
-| use_id             | string | null: false |
+| Column        | Type       | Options     |
+| ------------- | ---------- | ----------- |
+| user          | references | null: false |
+| item          | references | null: false |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- has_one    :Shipping info
+- has_one    :shipping_record
 
 
-# Shipping info テーブル
+# shipping_records テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| post code          | string | null: false |
-| Prefectures        | string | null: false |
-| municipalities     | string | null: false |
-| house number       | string | null: false |
-| Building name      | string | null: false |
-| telephone number   | string | null: false |
+| Column                | Type    | Options     |
+| --------------------- | ------- | ----------- |
+| post_code_id          | integer | null: false |
+| prefecture_id         | integer | null: false |
+| municipalities        | string  | null: false |
+| house_number          | string  | null: false |
+| building_name         | string  |
+| telephone_number      | string  | null: false |
 
 
 ### Association
 
- belongs_to :purchase info
+ belongs_to :purchase_record
