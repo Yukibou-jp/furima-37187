@@ -56,8 +56,8 @@
 | Column                    | Type       | Options     |
 | ---------------------     | ---------- | ----------- |
 | post_code                 | string     | null: false |
-| prefecture_id             | integer    | null: false |
-| shipment_source_id        | string     | null: false |
+| shipment_source_id        | integer    | null: false |
+| current_city              | string     | null: false |
 | house_number              | string     | null: false |
 | building_name             | string     |
 | telephone_number          | string     | null: false |
