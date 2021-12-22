@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   end
 
   def new
-  @user = user.create
   end
 
   def create
